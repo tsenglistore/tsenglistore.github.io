@@ -1,96 +1,126 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <title>我的商品展示</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #0077cc;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 { margin: 0; }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 20px;
-    }
-    .product {
-      background-color: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      width: 250px;
-      margin: 10px;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .product img {
-      max-width: 100%;
-      border-radius: 5px;
-    }
-    .product h2 {
-      font-size: 20px;
-      margin: 10px 0;
-    }
-    .product p {
-      font-size: 16px;
-      color: #555;
-    }
-    .buy-btn {
-      display: inline-block;
-      background-color: #28a745;
-      color: white;
-      padding: 10px 20px;
-      margin-top: 10px;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    .buy-btn:hover {
-      background-color: #218838;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tsengli Store</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#f5f5f5;
+margin:0;
+}
+
+header{
+background:#ff5722;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:20px;
+max-width:1200px;
+margin:auto;
+}
+
+.product{
+background:white;
+border-radius:10px;
+padding:15px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.product img{
+width:100%;
+border-radius:8px;
+}
+
+.product h3{
+font-size:18px;
+margin:10px 0;
+}
+
+.price{
+color:#ff5722;
+font-size:20px;
+font-weight:bold;
+}
+
+.btn{
+display:inline-block;
+margin-top:10px;
+padding:10px 15px;
+background:#ee4d2d;
+color:white;
+text-decoration:none;
+border-radius:6px;
+}
+
+.btn:hover{
+background:#d84315;
+}
+
+footer{
+text-align:center;
+padding:20px;
+color:#777;
+}
+
+</style>
+
 </head>
+
 <body>
-  <header>
-    <h1>我的商品展示</h1>
-    <p>歡迎來到我的小商店！</p>
-  </header>
 
-  <div class="container">
-    <!-- 商品 1 -->
-    <div class="product">
-      <img src="https://via.placeholder.com/200x150.png?text=商品1" alt="商品1">
-      <h2>商品 1</h2>
-      <p>價格：NT$ 500</p>
-      <a class="buy-btn" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=你的PayPal按鈕ID" target="_blank">立即購買</a>
-    </div>
+<header>
+<h1>Tsengli Store</h1>
+<p>蝦皮商品展示</p>
+</header>
 
-    <!-- 商品 2 -->
-    <div class="product">
-      <img src="https://via.placeholder.com/200x150.png?text=商品2" alt="商品2">
-      <h2>商品 2</h2>
-      <p>價格：NT$ 800</p>
-      <a class="buy-btn" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=你的PayPal按鈕ID" target="_blank">立即購買</a>
-    </div>
+<div class="container">
 
-    <!-- 商品 3 -->
-    <div class="product">
-      <img src="https://via.placeholder.com/200x150.png?text=商品3" alt="商品3">
-      <h2>商品 3</h2>
-      <p>價格：NT$ 1200</p>
-      <a class="buy-btn" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=你的PayPal按鈕ID" target="_blank">立即購買</a>
-    </div>
-  </div>
+<!-- 商品1 -->
+<div class="product">
+<img src="images/product1.jpg">
+<h3>商品名稱</h3>
+<div class="price">NT$199</div>
+<a class="btn" href="蝦皮商品連結" target="_blank">
+前往蝦皮購買
+</a>
+</div>
+
+<!-- 商品2 -->
+<div class="product">
+<img src="images/product2.jpg">
+<h3>商品名稱</h3>
+<div class="price">NT$350</div>
+<a class="btn" href="蝦皮商品連結" target="_blank">
+前往蝦皮購買
+</a>
+</div>
+
+<!-- 商品3 -->
+<div class="product">
+<img src="images/product3.jpg">
+<h3>商品名稱</h3>
+<div class="price">NT$499</div>
+<a class="btn" href="蝦皮商品連結" target="_blank">
+前往蝦皮購買
+</a>
+</div>
+
+</div>
+
+<footer>
+© 2026 Tsengli Store
+</footer>
 
 </body>
 </html>
