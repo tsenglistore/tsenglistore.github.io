@@ -27,7 +27,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 10%;
+      padding: 10px 10%; /* 稍微縮小上下 padding，讓 Logo 看起來更精緻 */
       background: #fff;
       position: sticky;
       top: 0;
@@ -35,13 +35,14 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
+    /* 修改 Logo 樣式以適應圖片 */
     .logo {
       display: flex;
       align-items: center;
     }
 
     .logo img {
-      height: 45px;
+      height: 45px; /* 控制 Logo 圖片的大小 */
       width: auto;
       object-fit: contain;
     }
@@ -199,54 +200,14 @@
       background-color: #f28500;
     }
 
-    /* 手機版適應 - 已更新關鍵修正代碼 */
-    /* 手機版適應 - 修正形象照尺寸 */
+    /* 手機版適應 */
     @media (max-width: 768px) {
-      .hero { 
-        flex-direction: column; 
-        text-align: center; 
-        padding: 40px 5% 0 5%; 
-      }
-
-      .hero-content { 
-        padding-bottom: 40px; 
-        order: 2; /* 讓文字在圖片下方 */
-      }
-
-      .hero-content h1 { 
-        font-size: 32px; 
-      }
-
-      .hero-btns { 
-        justify-content: center; 
-      }
-
-      .hero-image { 
-        order: 1; /* 讓圖片在文字上方 */
-        justify-content: center; 
-        margin-bottom: 30px;
-        width: 100%; /* 容器佔滿寬度以方便居中 */
-      }
-
-      .hero-image img {
-        /* 設定手機版的固定大尺寸，例如 280px */
-        width: 280px; 
-        height: 280px; 
-        
-        /* 關鍵：等比放大並填滿，不變形 */
-        object-fit: cover; 
-        
-        /* 專業感圓角 (可依喜好調整，50% 為圓形) */
-        border-radius: 20px; 
-        
-        /* 居中顯示 */
-        margin: 0 auto;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      }
-
-      .nav-links { 
-        display: none; 
-      }
+      .hero { flex-direction: column; text-align: center; padding: 40px 5% 0 5%; }
+      .hero-content { padding-bottom: 40px; }
+      .hero-image { order: 1; margin-top: 30px; }
+      .hero-content h1 { font-size: 32px; }
+      .hero-btns { justify-content: center; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
