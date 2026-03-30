@@ -200,60 +200,49 @@
       background-color: #f28500;
     }
 
-    /* 手機版適應 */
+    /* 手機版適應 - 專業形象照比例修正 */
     @media (max-width: 768px) {
       .hero { 
         flex-direction: column; 
         text-align: center; 
-        padding: 40px 0 0 0; /* 移除左右 padding，讓圖片可以滿版或大尺寸顯示 */
+        padding: 60px 0 0 0; /* 移除左右 padding，讓圖片可以滿版 */
         min-height: auto;
       }
 
       .hero-content { 
-        padding: 0 5% 40px 5%; /* 文字部分縮排 */
-        order: 2; /* 文字移到圖片下方，符合現代行動版視覺邏輯 */
+        padding: 0 10% 40px 10%; /* 將 padding 移到內容區 */
+        order: 2; 
       }
 
-      .hero-content h1 { 
-        font-size: 32px; 
-      }
+      .hero-content h1 { font-size: 32px; }
+      .hero-btns { justify-content: center; }
 
-      .hero-btns { 
-        justify-content: center; 
-      }
-
-      /* 關鍵修改：讓圖片區域成為視覺中心 */
       .hero-image { 
-        order: 1; /* 圖片在上方先出現 */
+        order: 1;
         width: 100%;
         display: flex;
         justify-content: center;
-        overflow: visible; /* 允許圖片略微溢出增加立體感 */
+        align-items: flex-end; /* 確保人物底邊對齊 */
+        margin-top: 0;
         margin-bottom: 20px;
       }
 
       .hero-image img {
-        /* 設定手機版固定的大尺寸，避免隨螢幕寬度縮小 */
-        width: 320px; 
-        height: 320px; 
+        /* 這裡設定手機版看到的圖片寬度，例如螢幕寬度的 80% */
+        width: 80%; 
+        max-width: 350px; /* 防止在超大手機上太大 */
+        height: auto; /* 確保等比縮放 */
         
-        /* 關鍵：等比放大並填滿，確保人物比例不變 */
-        object-fit: cover; 
-        object-position: top center; /* 以人物頭部為裁切基準 */
-
-        /* 專業感圓角或形狀 */
-        border-radius: 30px; 
+        /* 關鍵：防止圖片被壓縮變形 */
+        flex-shrink: 0; 
+        object-fit: contain; 
         
-        /* 增加陰影與層次感 */
-        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        
-        /* 視覺優化：稍微讓圖片大於內容寬度 */
-        max-width: 90%; 
+        /* 移除圓角或調整，使其看起來像從底部長出來 */
+        border-radius: 0; 
+        display: block;
       }
 
-      .nav-links { 
-        display: none; 
-      }
+      .nav-links { display: none; }
     }
   </style>
 </head>
