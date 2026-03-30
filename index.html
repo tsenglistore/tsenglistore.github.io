@@ -200,41 +200,52 @@
     }
 
     /* 手機版適應 - 已更新關鍵修正代碼 */
+    /* 手機版適應 - 修正形象照尺寸 */
     @media (max-width: 768px) {
-      nav { padding: 10px 5%; }
-      
       .hero { 
         flex-direction: column; 
         text-align: center; 
         padding: 40px 5% 0 5%; 
       }
-      
-      .hero-content { 
-        padding-bottom: 30px; 
-      }
-      
-      .hero-content h1 { font-size: 32px; }
-      
-      .hero-btns { justify-content: center; }
-      
-      .nav-links { display: none; }
 
-      /* 關鍵修正：避免個人形象照縮小 */
-      .hero-image { 
-        order: 1;
-        margin-top: 20px; 
-        width: 100%; 
-        display: flex;
-        justify-content: center; /* 水平置中 */
-        align-self: flex-end; 
+      .hero-content { 
+        padding-bottom: 40px; 
+        order: 2; /* 讓文字在圖片下方 */
       }
-      
-      .hero-image img { 
-        height: 40vh; /* 設定具體顯示高度 (如螢幕高度的 40%) */
-        width: auto; 
-        max-width: 100%; 
-        border-radius: 20px 20px 0 0; 
-        display: block;
+
+      .hero-content h1 { 
+        font-size: 32px; 
+      }
+
+      .hero-btns { 
+        justify-content: center; 
+      }
+
+      .hero-image { 
+        order: 1; /* 讓圖片在文字上方 */
+        justify-content: center; 
+        margin-bottom: 30px;
+        width: 100%; /* 容器佔滿寬度以方便居中 */
+      }
+
+      .hero-image img {
+        /* 設定手機版的固定大尺寸，例如 280px */
+        width: 280px; 
+        height: 280px; 
+        
+        /* 關鍵：等比放大並填滿，不變形 */
+        object-fit: cover; 
+        
+        /* 專業感圓角 (可依喜好調整，50% 為圓形) */
+        border-radius: 20px; 
+        
+        /* 居中顯示 */
+        margin: 0 auto;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      }
+
+      .nav-links { 
+        display: none; 
       }
     }
   </style>
