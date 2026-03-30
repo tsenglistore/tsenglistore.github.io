@@ -8,10 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #008080;
-      --dark-color: #1a2b3c;
+      --primary-color: #008080; /* 類參考圖的青綠色 */
+      --dark-color: #1a2b3c;    /* 深藍色背景 */
       --text-color: #333;
-      --light-bg: #f4f7f6;
+      --light-bg: #f4f7f6;      /* 淺灰色背景 */
     }
 
     body {
@@ -54,14 +54,7 @@
       font-weight: 500;
     }
 
-    .nav-btn {
-      background: var(--primary-color);
-      color: white !important;
-      padding: 8px 20px;
-      border-radius: 50px;
-    }
-
-    /* 英雄區 (Hero Section) */
+    /* 英雄區 (Hero Section) - 改為純白以區隔下方色塊 */
     .hero {
       display: flex;
       align-items: center;
@@ -69,14 +62,13 @@
       padding: 80px 10% 0 10%;
       background: #ffffff; 
       min-height: 70vh;
-      margin-bottom: 0;
+      margin-bottom: 0; /* 確保無縫接軌 */
       overflow: hidden;
     }
 
     .hero-content {
       flex: 1;
       max-width: 600px;
-      padding-bottom: 80px;
     }
 
     .hero-content h1 {
@@ -120,17 +112,15 @@
       flex: 1;
       display: flex;
       justify-content: flex-end;
-      align-self: flex-end;
     }
 
     .hero-image img {
       max-width: 100%;
       height: auto;
-      border-radius: 20px 20px 0 0; 
-      display: block;
+      border-radius: 20px; 
     }
 
-    /* 內容區塊容器 (淺灰底) */
+    /* 新增：內容區塊容器 - 用來做顏色切換 (淺灰底) */
     .content-section {
       background-color: var(--light-bg);
       padding: 80px 0;
@@ -270,4 +260,5 @@
   </div>
 
 </body>
+</html>
 </html>
