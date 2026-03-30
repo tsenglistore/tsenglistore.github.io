@@ -200,48 +200,13 @@
       background-color: #f28500;
     }
 
-    /* 手機版適應 - 專業形象照比例修正 */
+    /* 手機版適應 */
     @media (max-width: 768px) {
-      .hero { 
-        flex-direction: column; 
-        text-align: center; 
-        padding: 60px 0 0 0; /* 移除左右 padding，讓圖片可以滿版 */
-        min-height: auto;
-      }
-
-      .hero-content { 
-        padding: 0 10% 40px 10%; /* 將 padding 移到內容區 */
-        order: 2; 
-      }
-
+      .hero { flex-direction: column; text-align: center; padding: 40px 5% 0 5%; }
+      .hero-content { padding-bottom: 40px; }
+      .hero-image { order: 1; margin-top: 30px; }
       .hero-content h1 { font-size: 32px; }
       .hero-btns { justify-content: center; }
-
-      .hero-image { 
-        order: 1;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end; /* 確保人物底邊對齊 */
-        margin-top: 0;
-        margin-bottom: 20px;
-      }
-
-      .hero-image img {
-        /* 這裡設定手機版看到的圖片寬度，例如螢幕寬度的 80% */
-        width: 80%; 
-        max-width: 350px; /* 防止在超大手機上太大 */
-        height: auto; /* 確保等比縮放 */
-        
-        /* 關鍵：防止圖片被壓縮變形 */
-        flex-shrink: 0; 
-        object-fit: contain; 
-        
-        /* 移除圓角或調整，使其看起來像從底部長出來 */
-        border-radius: 0; 
-        display: block;
-      }
-
       .nav-links { display: none; }
     }
   </style>
