@@ -201,13 +201,63 @@
     }
 
     /* 手機版適應 */
+    /* 手機版專業適應 - 徹底解決比例與對齊問題 */
     @media (max-width: 768px) {
-      .hero { flex-direction: column; text-align: center; padding: 40px 5% 0 5%; }
-      .hero-content { padding-bottom: 40px; }
-      .hero-image { order: 1; margin-top: 30px; }
-      .hero-content h1 { font-size: 32px; }
-      .hero-btns { justify-content: center; }
-      .nav-links { display: none; }
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 0 0 0; /* 頂部留白，左右不設限讓圖片能滿版 */
+        min-height: auto;    /* 關鍵：解除高度限制，避免強制拉伸 */
+        background: #ffffff;
+        display: block;      /* 改回區塊佈局 */
+      }
+
+      .hero-content {
+        padding: 0 10% 30px 10%;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .hero-content h1 {
+        font-size: 32px;
+        margin-bottom: 15px;
+      }
+
+      .hero-btns {
+        justify-content: center;
+      }
+
+      /* 形象照容器：確保底邊對齊 */
+      .hero-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end; /* 強制底邊對齊 */
+        margin-top: 20px;
+        overflow: hidden;
+      }
+
+      .hero-image img {
+        /* 設定手機版適中的寬度比例 */
+        width: 85%; 
+        max-width: 400px;
+        
+        /* 關鍵：徹底固定比例，絕不縮放變形 */
+        height: auto !important; 
+        display: block;
+        margin: 0 auto;
+        
+        /* 移除圓角，讓圖片底部平整地貼在區塊邊緣 */
+        border-radius: 0; 
+        
+        /* 增加一點淡出效果或直接呈現 */
+        mask-image: linear-gradient(to top, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+      }
+
+      /* 隱藏手機版導航連結 */
+      .nav-links {
+        display: none;
+      }
     }
   </style>
 </head>
