@@ -127,8 +127,8 @@
 
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
       padding: 0 10%;
       margin-bottom: 80px;
     }
@@ -147,10 +147,26 @@
       transform: translateY(-10px);
     }
 
-    .product img {
+    .img-container {
       width: 100%;
-      height: 320px;
-      object-fit: cover;
+      height: 320px; /* 增加高度到 320px */
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .product img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain; /* 確保商品完整顯現，不被裁切 */
+      transition: 0.5s;
+    }
+
+    .product:hover img {
+      transform: scale(1.05); /* 滑鼠經過時圖片輕微放大 */
     }
 
     .product h2 {
@@ -224,21 +240,21 @@
   <div class="container">
     <div class="product">
       <img src="images/p1.jpg" alt="商品1" class="p1-photo">
-      <h2>iPhone 17 Pro Max 6.9吋 冰晶透明空壓殼</h2>
+      <h2>iPhone 17 Pro Max<br>冰晶透明空壓殼</h2>
       <div class="price">NT$ 199</div>
       <a class="buy-btn" href="https://s.shopee.tw/2g6R8e9f9t" target="_blank">立即購買</a>
     </div>
 
     <div class="product">
       <img src="images/p2.png" alt="商品2" class="p2-photo">
-      <h2>Samsung 25W 快充通用行旅充</h2>
+      <h2>Samsung 25W<br>快充通用行旅充</h2>
       <div class="price">NT$ 419</div>
       <a class="buy-btn" href="https://s.shopee.tw/7poXICEd8d" target="_blank">立即購買</a>
     </div>
 
     <div class="product">
       <img src="images/p3.jpg" alt="商品3" class="p3-photo">
-      <h2>Apple Pencil (USB-C)</h2>
+      <h2>Apple Pencil<br>(USB-C)</h2>
       <div class="price">NT$ 2219</div>
       <a class="buy-btn" href="https://s.shopee.tw/qemxDR3db" target="_blank">立即購買</a>
     </div>
