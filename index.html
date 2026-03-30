@@ -202,12 +202,58 @@
 
     /* 手機版適應 */
     @media (max-width: 768px) {
-      .hero { flex-direction: column; text-align: center; padding: 40px 5% 0 5%; }
-      .hero-content { padding-bottom: 40px; }
-      .hero-image { order: 1; margin-top: 30px; }
-      .hero-content h1 { font-size: 32px; }
-      .hero-btns { justify-content: center; }
-      .nav-links { display: none; }
+      .hero { 
+        flex-direction: column; 
+        text-align: center; 
+        padding: 40px 0 0 0; /* 移除左右 padding，讓圖片可以滿版或大尺寸顯示 */
+        min-height: auto;
+      }
+
+      .hero-content { 
+        padding: 0 5% 40px 5%; /* 文字部分縮排 */
+        order: 2; /* 文字移到圖片下方，符合現代行動版視覺邏輯 */
+      }
+
+      .hero-content h1 { 
+        font-size: 32px; 
+      }
+
+      .hero-btns { 
+        justify-content: center; 
+      }
+
+      /* 關鍵修改：讓圖片區域成為視覺中心 */
+      .hero-image { 
+        order: 1; /* 圖片在上方先出現 */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        overflow: visible; /* 允許圖片略微溢出增加立體感 */
+        margin-bottom: 20px;
+      }
+
+      .hero-image img {
+        /* 設定手機版固定的大尺寸，避免隨螢幕寬度縮小 */
+        width: 320px; 
+        height: 320px; 
+        
+        /* 關鍵：等比放大並填滿，確保人物比例不變 */
+        object-fit: cover; 
+        object-position: top center; /* 以人物頭部為裁切基準 */
+
+        /* 專業感圓角或形狀 */
+        border-radius: 30px; 
+        
+        /* 增加陰影與層次感 */
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        
+        /* 視覺優化：稍微讓圖片大於內容寬度 */
+        max-width: 90%; 
+      }
+
+      .nav-links { 
+        display: none; 
+      }
     }
   </style>
 </head>
