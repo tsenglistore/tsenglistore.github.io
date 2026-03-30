@@ -59,7 +59,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 80px 10%;
+      padding: 60px 10% 80px; /* 增加下方 Padding */
       background: linear-gradient(135deg, #fff 60%, var(--light-bg) 100%);
       min-height: 70vh;
     }
@@ -67,6 +67,7 @@
     .hero-content {
       flex: 1;
       max-width: 600px;
+      z-index: 10; /* 確保文字在容器上層 */
     }
 
     .hero-content h1 {
@@ -106,17 +107,35 @@
       font-weight: bold;
     }
 
+    /* 關鍵：人物容器設計 */
     .hero-image {
       flex: 1;
       display: flex;
       justify-content: flex-end;
+      align-items: flex-end; /* 讓圖片置底 */
+      position: relative;
     }
 
-    .hero-image img {
-      max-width: 100%;
-      height: auto;
-      /* 這裡可以放你的專業個人照 */
-      border-radius: 20px; 
+    /* 新增：人物後方的專業裝飾容器 */
+    .photo-container {
+      position: relative;
+      width: 450px; /* 容器寬度 */
+      height: 450px; /* 容器高度 */
+      background-color: var(--primary-color); /* 使用品牌色作為背景 */
+      border-radius: 50%; /* 改成圓形容器 */
+      overflow: hidden; /* **關鍵：切掉平整的底部** */
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15); /* 加強質感陰影 */
+    }
+
+    .personal-photo {
+      position: absolute;
+      bottom: -10px; /* 讓圖片稍微超出圓形底部，隱藏切邊並產生立體感 */
+      left: 50%;
+      transform: translateX(-50%); /* 水平居中 */
+      height: 110%; /* 讓圖片比容器高，產生「跳出來」的立體感 */
+      width: auto;
+      object-fit: cover;
+      display: block;
     }
 
     /* 商品展示區 */
