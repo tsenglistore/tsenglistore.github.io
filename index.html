@@ -27,7 +27,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 10%; /* 稍微縮小上下 padding，讓 Logo 看起來更精緻 */
+      padding: 10px 10%;
       background: #fff;
       position: sticky;
       top: 0;
@@ -35,14 +35,13 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
-    /* 修改 Logo 樣式以適應圖片 */
     .logo {
       display: flex;
       align-items: center;
     }
 
     .logo img {
-      height: 45px; /* 控制 Logo 圖片的大小 */
+      height: 45px;
       width: auto;
       object-fit: contain;
     }
@@ -61,35 +60,37 @@
       border-radius: 50px;
     }
 
-    /* 英雄區 (Hero Section) */
+    /* 英雄區 (Hero Section) - 參考「秒站」調整比例 */
     .hero {
       display: flex;
-      align-items: flex-end; /* 關鍵：讓人物與文字從底部對齊 */
+      align-items: stretch; /* 讓內容撐滿高度 */
       justify-content: space-between;
-      padding: 40px 10% 0 10%; /* 縮小上方間距，讓頭部上移 */
+      padding: 0 10%; /* 移除上方 padding，改由內容撐開 */
       background: #ffffff; 
-      min-height: 500px; /* 改用固定最小高度，避免手機版電腦模式下太高 */
-      margin-bottom: 0;
-      overflow: visible; /* 允許人物稍微露出邊界 */
+      min-height: 500px; /* 固定最小高度，確保 Android 電腦模式比例正確 */
+      overflow: hidden;
     }
 
     .hero-content {
-      flex: 1.2; /* 讓文字佔比稍微大一點 */
-      max-width: 600px;
-      padding-bottom: 100px; /* 將文字向上撐起，對齊人物上半身 */
+      flex: 1.2; /* 讓文字區塊稍微寬一點 */
+      max-width: 650px;
+      padding: 100px 0; /* 使用 padding 控制文字高度位置 */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .hero-content h1 {
-      font-size: 42px; /* 稍微縮小，更精緻 */
-      line-height: 1.3;
-      margin-bottom: 20px;
+      font-size: 52px; /* 稍微加大字體仿效秒站感 */
+      line-height: 1.2;
+      margin-bottom: 24px;
       color: var(--dark-color);
     }
-    
+
     .hero-content p {
-      font-size: 18px;
+      font-size: 20px;
       color: #666;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
     .hero-btns {
@@ -116,21 +117,21 @@
       font-weight: bold;
     }
 
+    /* 修正人物位置：解決太下面與比例問題 */
     .hero-image {
       flex: 1;
       display: flex;
       justify-content: flex-end;
-      align-self: flex-end;
-      position: relative;
+      align-items: flex-end; /* 關鍵：人物貼底 */
     }
 
     .hero-image img {
-      width: 85%; /* 仿秒站的人物寬度比例 */
-      max-width: 450px; 
-      height: auto !important; /* 強制維持原始比例，解決 Android 變形問題 */
-      border-radius: 0; /* 移除圓角，讓底部平整貼合地平線 */
+      max-width: 90%; /* 調整人物在螢幕中的比例感 */
+      height: auto;
       display: block;
-      filter: drop-shadow(10px 0 20px rgba(0,0,0,0.05)); /* 增加輕微立體感 */
+      /* 移除圓角，模仿秒站人物貼齊邊緣的乾淨感 */
+      border-radius: 0; 
+      object-fit: contain;
     }
 
     /* 內容區塊容器 (淺灰底) */
@@ -203,27 +204,23 @@
       background-color: #f28500;
     }
 
-    /* 手機版適應 */
+    /* 手機版適應 (當不開啟電腦版模式時) */
     @media (max-width: 768px) {
       .hero { 
         flex-direction: column; 
         text-align: center; 
         padding: 40px 5% 0 5%; 
-        align-items: center;
+        min-height: auto;
       }
-      .hero-content { 
-        padding-bottom: 40px; 
-        order: 2; 
-      }
+      .hero-content { padding: 40px 0; }
       .hero-image { 
-        order: 1; 
-        width: 100%;
+        order: 1; /* 人物在下 */
         justify-content: center;
       }
-      .hero-image img {
-        width: 70%; /* 手機版電腦模式下縮小人物 */
-        max-width: 280px;
-      }
+      .hero-image img { max-width: 80%; }
+      .hero-content h1 { font-size: 36px; }
+      .hero-btns { justify-content: center; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
