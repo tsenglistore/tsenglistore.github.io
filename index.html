@@ -64,28 +64,28 @@
     /* 英雄區 (Hero Section) */
     .hero {
       display: flex;
-      align-items: center;
+      align-items: flex-end; /* 關鍵：讓人物與文字從底部對齊 */
       justify-content: space-between;
-      padding: 80px 10% 0 10%;
+      padding: 40px 10% 0 10%; /* 縮小上方間距，讓頭部上移 */
       background: #ffffff; 
-      min-height: 70vh;
+      min-height: 500px; /* 改用固定最小高度，避免手機版電腦模式下太高 */
       margin-bottom: 0;
-      overflow: hidden;
+      overflow: visible; /* 允許人物稍微露出邊界 */
     }
 
     .hero-content {
-      flex: 1;
+      flex: 1.2; /* 讓文字佔比稍微大一點 */
       max-width: 600px;
-      padding-bottom: 80px;
+      padding-bottom: 100px; /* 將文字向上撐起，對齊人物上半身 */
     }
 
     .hero-content h1 {
-      font-size: 48px;
-      line-height: 1.2;
+      font-size: 42px; /* 稍微縮小，更精緻 */
+      line-height: 1.3;
       margin-bottom: 20px;
       color: var(--dark-color);
     }
-
+    
     .hero-content p {
       font-size: 18px;
       color: #666;
@@ -121,13 +121,16 @@
       display: flex;
       justify-content: flex-end;
       align-self: flex-end;
+      position: relative;
     }
 
     .hero-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 20px 20px 0 0; 
+      width: 85%; /* 仿秒站的人物寬度比例 */
+      max-width: 450px; 
+      height: auto !important; /* 強制維持原始比例，解決 Android 變形問題 */
+      border-radius: 0; /* 移除圓角，讓底部平整貼合地平線 */
       display: block;
+      filter: drop-shadow(10px 0 20px rgba(0,0,0,0.05)); /* 增加輕微立體感 */
     }
 
     /* 內容區塊容器 (淺灰底) */
@@ -202,12 +205,25 @@
 
     /* 手機版適應 */
     @media (max-width: 768px) {
-      .hero { flex-direction: column; text-align: center; padding: 40px 5% 0 5%; }
-      .hero-content { padding-bottom: 40px; }
-      .hero-image { order: 1; margin-top: 30px; }
-      .hero-content h1 { font-size: 32px; }
-      .hero-btns { justify-content: center; }
-      .nav-links { display: none; }
+      .hero { 
+        flex-direction: column; 
+        text-align: center; 
+        padding: 40px 5% 0 5%; 
+        align-items: center;
+      }
+      .hero-content { 
+        padding-bottom: 40px; 
+        order: 2; 
+      }
+      .hero-image { 
+        order: 1; 
+        width: 100%;
+        justify-content: center;
+      }
+      .hero-image img {
+        width: 70%; /* 手機版電腦模式下縮小人物 */
+        max-width: 280px;
+      }
     }
   </style>
 </head>
