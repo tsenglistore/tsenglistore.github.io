@@ -46,6 +46,11 @@
       object-fit: contain;
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -65,119 +70,221 @@
       padding: 8px 20px;
       border-radius: 50px;
       margin-left: 25px;
+      font-weight: bold;
     }
 
-    /* 修正點擊顏色：點擊或懸停時稍微變淺，不再變深 */
     .nav-btn:hover {
-      background: #00a0a0; 
+      background: #00a0a0;
     }
 
-    /* 漢堡選單圖示 (手機版才出現) */
+    /* 漢堡選單圖示 - 預設隱藏 */
     .menu-toggle {
       display: none;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
       cursor: pointer;
-      padding: 10px;
-      margin-left: 15px;
+      margin-left: 20px;
     }
 
     .menu-toggle span {
-      display: block;
-      width: 25px;
+      width: 28px;
       height: 3px;
       background: var(--dark-color);
-      border-radius: 3px;
+      border-radius: 2px;
       transition: 0.3s;
     }
 
-    /* 手機版選單清單 (Overlay) */
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: -100%; /* 平時藏在右邊 */
-      width: 80%;
-      max-width: 300px;
-      height: 100%;
-      background: #fff;
-      z-index: 2000;
-      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-      padding: 60px 30px;
-      transition: 0.4s;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .mobile-menu.active {
-      right: 0; /* 開啟時滑入 */
-    }
-
-    .mobile-menu a {
-      text-decoration: none;
-      color: var(--dark-color);
-      font-size: 20px;
-      font-weight: 500;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 10px;
-    }
-
-    /* 關閉按鈕 */
-    .close-menu {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 30px;
-      cursor: pointer;
-      color: #999;
-    }
-
-    /* 遮罩 */
-    .menu-overlay {
+    /* 手機版彈出選單樣式 */
+    .mobile-menu-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 1999;
-      display: none;
+      background: rgba(0,0,0,0.5); /* 半透明遮罩 */
+      display: none; /* 預設關閉 */
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
     }
 
-    .menu-overlay.active {
+    .mobile-menu-content {
+      background: white;
+      width: 85%; /* 左右保留空隙 */
+      max-width: 350px;
+      border-radius: 20px;
+      padding: 30px;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #999;
+    }
+
+    .mobile-menu-content a {
       display: block;
+      padding: 15px 0;
+      text-decoration: none;
+      color: var(--dark-color);
+      font-size: 18px;
+      font-weight: 500;
+      border-bottom: 1px solid #eee;
     }
 
-    /* 英雄區 & 內容區 (保持原樣) */
-    .hero { display: flex; align-items: stretch; justify-content: space-between; padding: 0 10%; background: #ffffff; min-height: 500px; overflow: hidden; }
-    .hero-content { flex: 1.2; max-width: 650px; padding: 100px 0; display: flex; flex-direction: column; justify-content: center; }
-    .hero-content h1 { font-size: 52px; line-height: 1.2; margin-bottom: 24px; color: var(--dark-color); }
-    .hero-content p { font-size: 20px; color: #666; margin-bottom: 40px; }
-    .hero-btns { display: flex; gap: 15px; }
-    .btn-main { background: var(--primary-color); color: white; padding: 15px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
-    .btn-outline { border: 1px solid var(--dark-color); color: var(--dark-color); padding: 15px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; }
-    .hero-image { flex: 1; display: flex; justify-content: flex-end; align-items: flex-end; padding-top: 50px; box-sizing: border-box; }
-    .hero-image img { max-width: 90%; height: auto; display: block; object-fit: contain; }
-    .content-section { background-color: var(--light-bg); padding: 80px 0; }
-    .section-title { text-align: center; margin-bottom: 40px; }
-    .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 10%; }
-    .product { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; padding-bottom: 25px; }
-    .product img { width: 100%; height: 220px; object-fit: contain; background-color: #fafafa; padding: 15px; box-sizing: border-box; }
-    .price { font-size: 20px; color: #ff0000; font-weight: bold; margin-bottom: 20px; }
-    .buy-btn { display: inline-block; background-color: #ff0000; color: white; padding: 10px 30px; text-decoration: none; border-radius: 50px; }
+    .mobile-menu-content a:last-child {
+      border-bottom: none;
+    }
 
-    /* 手機版適應修正 */
+    /* 英雄區 (Hero Section) */
+    .hero {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      padding: 0 10%;
+      background: #ffffff; 
+      min-height: 500px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      flex: 1.2;
+      max-width: 650px;
+      padding: 100px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-content h1 {
+      font-size: 52px;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--dark-color);
+    }
+
+    .hero-content p {
+      font-size: 20px;
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn-main {
+      background: var(--primary-color);
+      color: white;
+      padding: 15px 35px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--dark-color);
+      color: var(--dark-color);
+      padding: 15px 35px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end; 
+      padding-top: 50px; 
+      box-sizing: border-box;
+    }
+
+    .hero-image img {
+      max-width: 90%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* 商品區塊 */
+    .content-section {
+      background-color: var(--light-bg);
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 0 10%;
+    }
+
+    .product {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      text-align: center;
+      padding-bottom: 25px;
+    }
+
+    .product img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      background-color: #fafafa;
+      padding: 15px;
+    }
+
+    .price {
+      font-size: 20px;
+      color: #ff0000;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .buy-btn {
+      display: inline-block;
+      background-color: #ff0000;
+      color: white;
+      padding: 10px 30px;
+      text-decoration: none;
+      border-radius: 50px;
+    }
+
+    /* 手機版調整 */
     @media (max-width: 768px) {
       nav { padding: 10px 5%; }
-      .nav-links a:not(.nav-btn) { display: none; }
-      .nav-btn { margin-left: 0; font-size: 14px; padding: 6px 15px; }
       
-      /* 顯示漢堡圖示 */
-      .menu-toggle { display: flex; }
+      .nav-links { display: none; } /* 隱藏原本連結 */
+      .menu-toggle { display: flex; } /* 顯示漢堡 */
 
-      .hero { flex-direction: column; text-align: center; padding: 40px 5% 0 5%; min-height: auto; }
+      .nav-btn {
+        margin-left: 0;
+        font-size: 14px;
+        padding: 6px 15px;
+      }
+
+      .hero { 
+        flex-direction: column; 
+        text-align: center; 
+        padding: 40px 5% 0 5%; 
+      }
       .hero-content { padding: 40px 0; }
-      .hero-image { order: 1; justify-content: center; padding-top: 0; }
+      .hero-image { justify-content: center; padding-top: 0; }
       .hero-image img { max-width: 80%; }
       .hero-content h1 { font-size: 32px; }
       .hero-btns { justify-content: center; }
@@ -186,32 +293,35 @@
 </head>
 <body>
 
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <span class="close-menu" onclick="toggleMenu()">&times;</span>
+      <h2 style="font-size: 20px; color: var(--primary-color);">Tseng Li</h2>
+      <a href="#" onclick="toggleMenu()">首頁</a>
+      <a href="#" onclick="toggleMenu()">功能特色</a>
+      <a href="#" onclick="toggleMenu()">關於我們</a>
+      <a href="https://s.shopee.tw/807rsXkoEx" class="nav-btn" style="display: inline-block; margin: 20px 0 0 0;">立即造訪</a>
+    </div>
+  </div>
+
   <nav>
     <a href="#" class="logo">
       <img src="images/品牌icon.jpg" alt="Tseng Li Logo">
     </a>
-    <div class="nav-links">
-      <a href="#">首頁</a>
-      <a href="#">功能特色</a>
-      <a href="#">關於我們</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#">首頁</a>
+        <a href="#">功能特色</a>
+        <a href="#">關於我們</a>
+      </div>
       <a href="https://s.shopee.tw/807rsXkoEx" class="nav-btn">立即造訪</a>
-      <div class="menu-toggle" id="mobile-menu-btn">
+      <div class="menu-toggle" onclick="toggleMenu()">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
   </nav>
-
-  <div class="menu-overlay" id="overlay"></div>
-  <div class="mobile-menu" id="side-menu">
-    <div class="close-menu" id="close-btn">&times;</div>
-    <a href="#">首頁</a>
-    <a href="#">功能特色</a>
-    <a href="#">關於我們</a>
-    <a href="#">產品諮詢</a>
-    <a href="#">常見問題</a>
-  </div>
 
   <header class="hero">
     <div class="hero-content">
@@ -240,29 +350,31 @@
         <div class="price">NT$ 199</div>
         <a class="buy-btn" href="https://s.shopee.tw/2g6R8e9f9t">立即購買</a>
       </div>
+      <div class="product">
+        <img src="images/p2.png" alt="P2">
+        <h2>Samsung 25W<br>快充通用行旅充</h2>
+        <div class="price">NT$ 419</div>
+        <a class="buy-btn" href="https://s.shopee.tw/7poXICEd8d">立即購買</a>
       </div>
+      <div class="product">
+        <img src="images/p3.jpg" alt="P3">
+        <h2>Apple Pencil<br>(USB-C)</h2>
+        <div class="price">NT$ 2219</div>
+        <a class="buy-btn" href="https://s.shopee.tw/qemxDR3db">立即購買</a>
+      </div>
+    </div>
   </div>
 
   <script>
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const sideMenu = document.getElementById('side-menu');
-    const closeBtn = document.getElementById('close-btn');
-    const overlay = document.getElementById('overlay');
-
-    // 開啟選單
-    menuBtn.addEventListener('click', () => {
-      sideMenu.classList.add('active');
-      overlay.classList.add('active');
-    });
-
-    // 關閉選單 (點擊 X 或 點擊遮罩)
-    const closeMenu = () => {
-      sideMenu.classList.remove('active');
-      overlay.classList.remove('active');
-    };
-
-    closeBtn.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
+    // 控制選單開關的簡單腳本
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu.style.display === 'flex') {
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'flex';
+      }
+    }
   </script>
 
 </body>
