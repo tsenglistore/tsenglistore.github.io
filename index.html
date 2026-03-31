@@ -46,42 +46,54 @@
       object-fit: contain;
     }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
     .nav-links a {
       margin-left: 25px;
       text-decoration: none;
       color: var(--text-color);
       font-weight: 500;
+      transition: 0.3s;
     }
 
+    /* 立即造訪按鈕樣式 */
     .nav-btn {
       background: var(--primary-color);
       color: white !important;
       padding: 8px 20px;
       border-radius: 50px;
+      margin-left: 25px;
     }
 
-    /* 英雄區 (Hero Section) - 參考「秒站」調整比例 */
+    .nav-btn:hover {
+      background: var(--dark-color);
+    }
+
+    /* 英雄區 (Hero Section) */
     .hero {
       display: flex;
-      align-items: stretch; /* 讓內容撐滿高度 */
+      align-items: stretch;
       justify-content: space-between;
-      padding: 0 10%; /* 移除上方 padding，改由內容撐開 */
+      padding: 0 10%;
       background: #ffffff; 
-      min-height: 500px; /* 固定最小高度，確保 Android 電腦模式比例正確 */
+      min-height: 500px;
       overflow: hidden;
     }
 
     .hero-content {
-      flex: 1.2; /* 讓文字區塊稍微寬一點 */
+      flex: 1.2;
       max-width: 650px;
-      padding: 100px 0; /* 使用 padding 控制文字高度位置 */
+      padding: 100px 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
     .hero-content h1 {
-      font-size: 52px; /* 稍微加大字體仿效秒站感 */
+      font-size: 52px;
       line-height: 1.2;
       margin-bottom: 24px;
       color: var(--dark-color);
@@ -117,30 +129,27 @@
       font-weight: bold;
     }
 
-    /* 修正人物位置：解決太下面與比例問題 */
     .hero-image {
       flex: 1;
       display: flex;
       justify-content: flex-end;
-      align-items: flex-end; /* 關鍵：人物貼底 */
+      align-items: flex-end; 
       padding-top: 50px; 
-      box-sizing: border-box; /* 確保 padding 不會撐大整體高度 */
+      box-sizing: border-box;
     }
 
     .hero-image img {
-      max-width: 90%; /* 調整人物在螢幕中的比例感 */
+      max-width: 90%;
       height: auto;
       display: block;
-      /* 移除圓角，模仿秒站人物貼齊邊緣的乾淨感 */
       border-radius: 0; 
       object-fit: contain;
     }
 
-    /* 內容區塊容器 (淺灰底) */
+    /* 內容區塊 */
     .content-section {
       background-color: var(--light-bg);
       padding: 80px 0;
-      margin-top: 0;
     }
 
     .section-title {
@@ -155,19 +164,13 @@
       padding: 0 10%;
     }
 
-    /* 商品展示區 */
     .product {
       background: white;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: transform 0.3s;
       text-align: center;
       padding-bottom: 25px;
-    }
-
-    .product:hover {
-      transform: translateY(-10px);
     }
 
     .product img {
@@ -179,12 +182,7 @@
       box-sizing: border-box;
     }
 
-    .product h2 {
-      font-size: 20px;
-      margin: 20px 0 10px;
-    }
-
-    .product .price {
+    .price {
       font-size: 20px;
       color: #ff0000;
       font-weight: bold;
@@ -198,16 +196,23 @@
       padding: 10px 30px;
       text-decoration: none;
       border-radius: 50px;
-      font-size: 14px;
-      transition: 0.3s;
     }
 
-    .buy-btn:hover {
-      background-color: #f28500;
-    }
-
-    /* 手機版適應 (當不開啟電腦版模式時) */
+    /* 關鍵修正：手機版導航列 */
     @media (max-width: 768px) {
+      nav { padding: 10px 5%; }
+      
+      /* 隱藏一般的文字連結，但保留按鈕 */
+      .nav-links a:not(.nav-btn) {
+        display: none;
+      }
+
+      .nav-btn {
+        margin-left: 0; /* 手機版貼緊右側 */
+        font-size: 14px;
+        padding: 6px 15px;
+      }
+
       .hero { 
         flex-direction: column; 
         text-align: center; 
@@ -216,13 +221,13 @@
       }
       .hero-content { padding: 40px 0; }
       .hero-image { 
-        order: 1; /* 人物在下 */
+        order: 1; 
         justify-content: center;
+        padding-top: 0; 
       }
       .hero-image img { max-width: 80%; }
-      .hero-content h1 { font-size: 36px; }
+      .hero-content h1 { font-size: 32px; }
       .hero-btns { justify-content: center; }
-      .nav-links { display: none; }
     }
   </style>
 </head>
