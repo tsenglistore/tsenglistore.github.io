@@ -1,264 +1,273 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tseng Li</title>
-  <link rel="icon" href="images/品牌icon.jpg" type="image/jpeg">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary-color: #008080; /* 類參考圖的青綠色 */
-      --dark-color: #1a2b3c;    /* 深藍色背景 */
-      --text-color: #333;
-      --light-bg: #f4f7f6;      /* 淺灰色背景 */
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tseng Li</title>
+  <link rel="icon" href="images/品牌icon.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #008080;
+      --dark-color: #1a2b3c;
+      --text-color: #333;
+      --light-bg: #f4f7f6;
+    }
 
-    body {
-      font-family: 'Noto Sans TC', sans-serif;
-      margin: 0;
-      padding: 0;
-      color: var(--text-color);
-      line-height: 1.6;
-    }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
 
-    /* 導航列 */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 10%; /* 稍微縮小上下 padding，讓 Logo 看起來更精緻 */
-      background: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
+    /* 導航列 */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 10%; /* 稍微縮小上下 padding，讓 Logo 看起來更精緻 */
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
 
-    /* 修改 Logo 樣式以適應圖片 */
-    .logo {
-      display: flex;
-      align-items: center;
-    }
+    /* 修改 Logo 樣式以適應圖片 */
+    .logo {
+      display: flex;
+      align-items: center;
+    }
 
-    .logo img {
-      height: 45px; /* 控制 Logo 圖片的大小 */
-      width: auto;
-      object-fit: contain;
-    }
+    .logo img {
+      height: 45px; /* 控制 Logo 圖片的大小 */
+      width: auto;
+      object-fit: contain;
+    }
 
-    .nav-links a {
-      margin-left: 25px;
-      text-decoration: none;
-      color: var(--text-color);
-      font-weight: 500;
-    }
+    .nav-links a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+    }
 
-    /* 英雄區 (Hero Section) - 改為純白以區隔下方色塊 */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 80px 10% 0 10%;
-      background: #ffffff; 
-      min-height: 70vh;
-      margin-bottom: 0; /* 確保無縫接軌 */
-      overflow: hidden;
-    }
+    .nav-btn {
+      background: var(--primary-color);
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 50px;
+    }
 
-    .hero-content {
-      flex: 1;
-      max-width: 600px;
-    }
+    /* 英雄區 (Hero Section) */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 10% 0 10%;
+      background: #ffffff; 
+      min-height: 70vh;
+      margin-bottom: 0;
+      overflow: hidden;
+    }
 
-    .hero-content h1 {
-      font-size: 48px;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      color: var(--dark-color);
-    }
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
+      padding-bottom: 80px;
+    }
 
-    .hero-content p {
-      font-size: 18px;
-      color: #666;
-      margin-bottom: 30px;
-    }
+    .hero-content h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--dark-color);
+    }
 
-    .hero-btns {
-      display: flex;
-      gap: 15px;
-    }
+    .hero-content p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
 
-    .btn-main {
-      background: var(--primary-color);
-      color: white;
-      padding: 15px 35px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+    .hero-btns {
+      display: flex;
+      gap: 15px;
+    }
 
-    .btn-outline {
-      border: 1px solid var(--dark-color);
-      color: var(--dark-color);
-      padding: 15px 35px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
+    .btn-main {
+      background: var(--primary-color);
+      color: white;
+      padding: 15px 35px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
 
-    .hero-image {
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-    }
+    .btn-outline {
+      border: 1px solid var(--dark-color);
+      color: var(--dark-color);
+      padding: 15px 35px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
 
-    .hero-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 20px; 
-    }
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-self: flex-end;
+    }
 
-    /* 新增：內容區塊容器 - 用來做顏色切換 (淺灰底) */
-    .content-section {
-      background-color: var(--light-bg);
-      padding: 80px 0;
-      margin-top: 0;
-    }
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px 20px 0 0; 
+      display: block;
+    }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+    /* 內容區塊容器 (淺灰底) */
+    .content-section {
+      background-color: var(--light-bg);
+      padding: 80px 0;
+      margin-top: 0;
+    }
 
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      padding: 0 10%;
-    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-    /* 商品展示區 */
-    .product {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: transform 0.3s;
-      text-align: center;
-      padding-bottom: 25px;
-    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 0 10%;
+    }
 
-    .product:hover {
-      transform: translateY(-10px);
-    }
+    /* 商品展示區 */
+    .product {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+      text-align: center;
+      padding-bottom: 25px;
+    }
 
-    .product img {
-      width: 100%;
-      height: 220px;
-      object-fit: contain;
-      background-color: #fafafa;
-      padding: 15px;
-      box-sizing: border-box;
-    }
+    .product:hover {
+      transform: translateY(-10px);
+    }
 
-    .product h2 {
-      font-size: 20px;
-      margin: 20px 0 10px;
-    }
+    .product img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      background-color: #fafafa;
+      padding: 15px;
+      box-sizing: border-box;
+    }
 
-    .product .price {
-      font-size: 20px;
-      color: #ff0000;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
+    .product h2 {
+      font-size: 20px;
+      margin: 20px 0 10px;
+    }
 
-    .buy-btn {
-      display: inline-block;
-      background-color: #ff0000;
-      color: white;
-      padding: 10px 30px;
-      text-decoration: none;
-      border-radius: 50px;
-      font-size: 14px;
-      transition: 0.3s;
-    }
+    .product .price {
+      font-size: 20px;
+      color: #ff0000;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
 
-    .buy-btn:hover {
-      background-color: #f28500;
-    }
+    .buy-btn {
+      display: inline-block;
+      background-color: #ff0000;
+      color: white;
+      padding: 10px 30px;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
 
-    /* 手機版適應 */
-    @media (max-width: 768px) {
-      .hero { flex-direction: column; text-align: center; padding: 40px 5% 0 5%; }
-      .hero-content { padding-bottom: 40px; }
-      .hero-image { order: 1; margin-top: 30px; }
-      .hero-content h1 { font-size: 32px; }
-      .hero-btns { justify-content: center; }
-      .nav-links { display: none; }
-    }
-  </style>
+    .buy-btn:hover {
+      background-color: #f28500;
+    }
+
+    /* 手機版適應 */
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; text-align: center; padding: 40px 5% 0 5%; }
+      .hero-content { padding-bottom: 40px; }
+      .hero-image { order: 1; margin-top: 30px; }
+      .hero-content h1 { font-size: 32px; }
+      .hero-btns { justify-content: center; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#" class="logo">
-      <img src="images/品牌icon.jpg" alt="Tseng Li Logo">
-    </a>
-    <div class="nav-links">
-      <a href="#">首頁</a>
-      <a href="#">功能特色</a>
-      <a href="#">關於我們</a>
-      <a href="https://s.shopee.tw/807rsXkoEx" class="nav-btn">立即造訪</a>
-    </div>
-  </nav>
+  <nav>
+    <a href="#" class="logo">
+      <img src="images/品牌icon.jpg" alt="Tseng Li Logo">
+    </a>
+    <div class="nav-links">
+      <a href="#">首頁</a>
+      <a href="#">功能特色</a>
+      <a href="#">關於我們</a>
+      <a href="https://s.shopee.tw/807rsXkoEx" class="nav-btn">立即造訪</a>
+    </div>
+  </nav>
 
-  <header class="hero">
-    <div class="hero-content">
-      <h1>優質的商品，<br>供您選購。</h1>
-      <p>高品質、完整流程，<br>最適合您的蝦皮購物賣家與貼心服務。</p>
-      <div class="hero-btns">
-        <a href="https://s.shopee.tw/807rsXkoEx" class="btn-main">立即開始</a>
-        <a href="https://s.shopee.tw/807rsXkoEx" class="btn-outline">了解更多</a>
-      </div>
-    </div>
-    <div class="hero-image">
-      <img src="images/個人形象.jpg" alt="Tseng Li" class="personal-photo">
-    </div>
-  </header>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>優質的商品，<br>供您選購。</h1>
+      <p>高品質、完整流程，<br>最適合您的蝦皮購物賣家與貼心服務。</p>
+      <div class="hero-btns">
+        <a href="https://s.shopee.tw/807rsXkoEx" class="btn-main">立即開始</a>
+        <a href="https://s.shopee.tw/807rsXkoEx" class="btn-outline">了解更多</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="images/個人形象.jpg" alt="Tseng Li" class="personal-photo">
+    </div>
+  </header>
 
-  <div class="content-section">
-    <div id="products" class="section-title">
-      <h2>精選商品</h2>
-      <p>提供您最優質的專業選擇</p>
-    </div>
+  <div class="content-section">
+    <div id="products" class="section-title">
+      <h2>精選商品</h2>
+      <p>提供您最優質的專業選擇</p>
+    </div>
 
-    <div class="container">
-      <div class="product">
-        <img src="images/p1.jpg" alt="P1">
-        <h2>iPhone 17 Pro Max<br>冰晶透明空壓殼</h2>
-        <div class="price">NT$ 199</div>
-        <a class="buy-btn" href="https://s.shopee.tw/2g6R8e9f9t">立即購買</a>
-      </div>
+    <div class="container">
+      <div class="product">
+        <img src="images/p1.jpg" alt="P1">
+        <h2>iPhone 17 Pro Max<br>冰晶透明空壓殼</h2>
+        <div class="price">NT$ 199</div>
+        <a class="buy-btn" href="https://s.shopee.tw/2g6R8e9f9t">立即購買</a>
+      </div>
 
-      <div class="product">
-        <img src="images/p2.png" alt="P2">
-        <h2>Samsung 25W<br>快充通用行旅充</h2>
-        <div class="price">NT$ 419</div>
-        <a class="buy-btn" href="https://s.shopee.tw/7poXICEd8d">立即購買</a>
-      </div>
+      <div class="product">
+        <img src="images/p2.png" alt="P2">
+        <h2>Samsung 25W<br>快充通用行旅充</h2>
+        <div class="price">NT$ 419</div>
+        <a class="buy-btn" href="https://s.shopee.tw/7poXICEd8d">立即購買</a>
+      </div>
 
-      <div class="product">
-        <img src="images/p3.jpg" alt="P3">
-        <h2>Apple Pencil<br>(USB-C)</h2>
-        <div class="price">NT$ 2219</div>
-        <a class="buy-btn" href="https://s.shopee.tw/qemxDR3db">立即購買</a>
-      </div>
-    </div>
-  </div>
+      <div class="product">
+        <img src="images/p3.jpg" alt="P3">
+        <h2>Apple Pencil<br>(USB-C)</h2>
+        <div class="price">NT$ 2219</div>
+        <a class="buy-btn" href="https://s.shopee.tw/qemxDR3db">立即購買</a>
+      </div>
+    </div>
+  </div>
 
 </body>
-</html>
 </html>
