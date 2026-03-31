@@ -115,9 +115,13 @@
     }
 
     .hero-image img {
-      max-width: 100%;
+      /* 將 max-width 從 100% 縮小到 80% (或你喜歡的數值) */
+      max-width: 80%; 
       height: auto;
-      border-radius: 20px; 
+      border-radius: 20px;
+      /* 如果圖片縮小後位置偏了，可以加這行確保它在容器內靠右 */
+      margin-left: auto; 
+      display: block;
     }
 
     /* 新增：內容區塊容器 - 用來做顏色切換 (淺灰底) */
@@ -198,6 +202,10 @@
       .hero-content h1 { font-size: 32px; }
       .hero-btns { justify-content: center; }
       .nav-links { display: none; }
+      .hero-image img {
+        max-width: 90%; /* 手機版佔比大一點比較好看 */
+        margin: 0 auto;  /* 手機版置中 */
+      }
     }
   </style>
 </head>
