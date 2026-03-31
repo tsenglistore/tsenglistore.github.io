@@ -22,7 +22,7 @@
       line-height: 1.6;
     }
 
-    /* 導航列 */
+    /* 導航列 - 保留陰影 */
     nav {
       display: flex;
       justify-content: space-between;
@@ -54,12 +54,12 @@
       font-weight: 500;
     }
 
-    /* 英雄區 (Hero Section) - 改為純白以區隔下方色塊 */
+    /* 英雄區 (Hero Section) - 純白背景，與下方色塊 */
     .hero {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 80px 10% 0 10%;
+      padding: 80px 10% 0 10%; /* 底部 Padding 設為 0 */
       background: #ffffff; 
       min-height: 70vh;
       margin-bottom: 0; /* 確保無縫接軌 */
@@ -69,6 +69,7 @@
     .hero-content {
       flex: 1;
       max-width: 600px;
+      padding-bottom: 80px; /* 補回原本文字區域的底部間距 */
     }
 
     .hero-content h1 {
@@ -112,19 +113,19 @@
       flex: 1;
       display: flex;
       justify-content: flex-end;
+      align-self: flex-end; /* 強制圖片容器對齊底部 */
     }
 
+    /* 關鍵修正：將圖片縮小到 70%，並靠右對齊 */
     .hero-image img {
-      /* 將 max-width 從 100% 縮小到 80% (或你喜歡的數值) */
-      max-width: 80%; 
+      max-width: 70%; /* 從原本的 100% 縮小到 70% */
       height: auto;
-      border-radius: 20px;
-      /* 如果圖片縮小後位置偏了，可以加這行確保它在容器內靠右 */
-      margin-left: auto; 
+      border-radius: 20px 20px 0 0; /* 底部不設圓角，與背景色塊完美銜接 */
       display: block;
+      margin-left: auto; /* 確保圖片在縮小後依然靠右對齊 */
     }
 
-    /* 新增：內容區塊容器 - 用來做顏色切換 (淺灰底) */
+    /* 內容區塊容器容器 (淺灰底) */
     .content-section {
       background-color: var(--light-bg);
       padding: 80px 0;
@@ -143,7 +144,7 @@
       padding: 0 10%;
     }
 
-    /* 商品展示區 */
+    /* 商品展示區 - 保留陰影 */
     .product {
       background: white;
       border-radius: 15px;
@@ -158,30 +159,32 @@
       transform: translateY(-10px);
     }
 
+    /* 關鍵修正：確保不同比例的商品圖完整顯示，不被裁切 */
     .product img {
       width: 100%;
-      height: 220px;
-      object-fit: contain;
-      background-color: #fafafa;
-      padding: 15px;
+      height: 220px; /* 固定高度 */
+      object-fit: contain; /* 確保圖片不被裁切 */
+      background-color: #fafafa; /* 給予輕微背景色，讓不同比例的圖不突兀 */
+      padding: 15px; /* 內縮一點，讓商品圖不會貼邊 */
       box-sizing: border-box;
     }
 
     .product h2 {
       font-size: 20px;
       margin: 20px 0 10px;
+      padding: 0 15px;
     }
 
     .product .price {
       font-size: 20px;
-      color: #ff0000;
+      color: var(--primary-color);
       font-weight: bold;
       margin-bottom: 20px;
     }
 
     .buy-btn {
       display: inline-block;
-      background-color: #ff0000;
+      background-color: var(--dark-color);
       color: white;
       padding: 10px 30px;
       text-decoration: none;
@@ -191,20 +194,27 @@
     }
 
     .buy-btn:hover {
-      background-color: #f28500;
+      background-color: var(--primary-color);
     }
 
-    /* 手機版適應 */
+    /* 手機版適應 - 修正形象照太大太漂浮的問題 */
     @media (max-width: 768px) {
       .hero { flex-direction: column; text-align: center; padding: 40px 5% 0 5%; }
-      .hero-content { padding-bottom: 40px; }
-      .hero-image { order: 1; margin-top: 30px; }
+      .hero-content { padding-bottom: 30px; }
+      .hero-image { order: 1; margin-top: 20px; }
       .hero-content h1 { font-size: 32px; }
       .hero-btns { justify-content: center; }
       .nav-links { display: none; }
+      
+      /* 手機版將圖片變為圓形並固定大小，營造專業感 */
       .hero-image img {
-        max-width: 90%; /* 手機版佔比大一點比較好看 */
-        margin: 0 auto;  /* 手機版置中 */
+        width: 250px; 
+        height: 250px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin: 0 auto;
+        border: 5px solid #fff;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
       }
     }
   </style>
@@ -268,5 +278,4 @@
   </div>
 
 </body>
-</html>
 </html>
