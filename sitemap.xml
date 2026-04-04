@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://tsenglistore.github.io/</loc>
-    <lastmod>2026-04-04</lastmod>
-  </url>
-
+   <url>
+      <loc>https://tsenglistore.github.io/</loc>
+      <lastmod>2026-04-04</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://s.shopee.tw/2g6R8e9f9t</loc>
+      <lastmod>2026-04-04</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://s.shopee.tw/7poXICEd8d</loc>
+      <lastmod>2026-04-04</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://s.shopee.tw/qemxDR3db</loc>
+      <lastmod>2026-04-04</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
 </urlset>
