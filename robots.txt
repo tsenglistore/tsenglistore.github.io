@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tsenglistore.github.io/sitemap.xml
