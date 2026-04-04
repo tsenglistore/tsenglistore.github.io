@@ -358,7 +358,7 @@
       background: white;
       border: none;
       cursor: pointer;
-      padding: 12px;
+      padding: 10px;
       text-decoration: none;
       box-sizing: border-box;
     }
@@ -547,14 +547,14 @@
   </footer>
 
   <div class="sticky-socials">
-    <a href="https://line.me/your-id" class="social-btn line" title="LINE 客服">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE">
+    <a href="https://www.threads.com/@tseng_li777" class="social-btn threads" title="Threads" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Threads_(social_network)_logo.svg" alt="Threads">
     </a>
-    <a href="https://www.instagram.com/your-id" class="social-btn ig" title="Instagram">
+    <a href="https://www.instagram.com/tseng_li777/" class="social-btn ig" title="Instagram" target="_blank">
       <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="IG">
     </a>
-    <a href="tel:0900000000" class="social-btn phone" title="電話聯繫">
-      <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone">
+    <a href="https://www.facebook.com/people/Tseng-Li/100084719720960/" class="social-btn fb" title="Facebook" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="FB">
     </a>
     <button class="social-btn scroll-top" onclick="scrollToTop()" title="回到頂部">
       ▲
@@ -562,7 +562,6 @@
   </div>
 
   <script>
-    // 選單切換
     function toggleMenu() {
       const overlay = document.getElementById('menuOverlay');
       if (overlay.style.display === 'flex') {
@@ -574,7 +573,6 @@
       }
     }
 
-    // 監聽視窗捲動
     window.addEventListener('scroll', function () {
       const scrollTopBtn = document.querySelector('.scroll-top');
       if (window.pageYOffset > 300) {
@@ -584,7 +582,6 @@
       }
     });
 
-    // 回到頂部
     function scrollToTop() {
       window.scrollTo({
         top: 0,
