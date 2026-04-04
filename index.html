@@ -97,20 +97,27 @@
   filter: brightness(0.9);
 }
 
+/* 側邊懸浮按鈕：回到頂部初始隱藏 */
 .social-btn.scroll-top { 
   background-color: #333; 
   color: white; 
   font-size: 16px;
-  padding: 0;
-  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* 初始隱藏狀態 */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease; /* 讓顯示/消失有淡入淡出的效果 */
+  transform: translateY(20px); /* 初始位置稍微往下移，增加彈出感 */
 }
 
-/* 如果你的 HTML 裡按鈕中間有寫字，就不用加這個 ::before */
-/* 但目前的代幕是用 ::before 來更精準控制位置 */
-.social-btn.scroll-top {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* 當有 .show 這個類別時才顯示 */
+.social-btn.scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
@@ -393,6 +400,26 @@
         document.body.style.overflow = 'hidden';
       }
     }
+
+    // 監聽視窗捲動事件
+window.addEventListener('scroll', function() {
+  const scrollTopBtn = document.querySelector('.scroll-top');
+  
+  // 當網頁往下捲動超過 300 像素時顯示按鈕
+  if (window.pageYOffset > 300) {
+    scrollTopBtn.classList.add('show');
+  } else {
+    scrollTopBtn.classList.remove('show');
+  }
+});
+
+// 回到頂部的功能保持不變
+function scrollToTop() {
+  window.scrollTo({
+    top: 0, 
+    behavior: 'smooth'
+  });
+}
   </script>
 
   <footer class="site-footer">
