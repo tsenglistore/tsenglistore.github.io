@@ -56,13 +56,15 @@
   }
 }
 
-    /* 側邊懸浮按鈕 */
+
+/* 側邊懸浮按鈕 */
 .sticky-socials {
   position: fixed;
   right: 20px;
-  bottom: 100px;
+  bottom: 40px; /* 稍微調低一點，避免擋住內容 */
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 12px;
   z-index: 9999;
 }
@@ -75,12 +77,13 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
   background: white;
   border: none;
   cursor: pointer;
-  padding: 10px;
+  padding: 12px; /* 增加內距，讓 icon 顯得精緻 */
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 .social-btn img {
@@ -91,15 +94,23 @@
 
 .social-btn:hover {
   transform: translateY(-5px);
+  filter: brightness(0.9);
 }
 
-/* 特定顏色調整 (可視需求增加) */
-.social-btn.line { background-color: #06C755; }
 .social-btn.scroll-top { 
   background-color: #333; 
   color: white; 
-  font-size: 20px; 
+  font-size: 16px;
   padding: 0;
+  font-family: sans-serif;
+}
+
+/* 如果你的 HTML 裡按鈕中間有寫字，就不用加這個 ::before */
+/* 但目前的代幕是用 ::before 來更精準控制位置 */
+.social-btn.scroll-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
