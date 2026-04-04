@@ -1,136 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TL 嚴選科技</title>
+
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tsenglistore.github.io/">
   <meta property="og:title" content="TL 嚴選科技 | 優質商品供您選購">
   <meta property="og:description" content="快速出貨、專業客服，最適合您的蝦皮購物賣家與貼心服務。">
   <meta property="og:image" content="https://tsenglistore.github.io/images/品牌icon.jpg">
-
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://tsenglistore.github.io/">
   <meta property="twitter:title" content="TL 嚴選科技 | 優質商品供您選購">
   <meta property="twitter:description" content="快速出貨、專業客服，最適合您的蝦皮購物賣家與貼心服務。">
   <meta property="twitter:image" content="https://tsenglistore.github.io/images/品牌icon.jpg">
+
   <link rel="icon" href="images/品牌icon.jpg" type="image/jpeg">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-    /* 頁尾樣式 */
-.site-footer {
-  background-color: #fff;
-  padding: 30px 10%;
-  border-top: 1px solid #eee;
-  color: #666;
-  font-size: 14px;
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.footer-bottom p {
-  margin: 0;
-}
-
-.footer-links a {
-  text-decoration: none;
-  color: #666;
-  transition: 0.3s;
-}
-
-.footer-links a:hover {
-  color: var(--primary-color);
-}
-
-@media (max-width: 768px) {
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-
-/* 側邊懸浮按鈕 */
-.sticky-socials {
-  position: fixed;
-  right: 20px;
-  bottom: 40px; /* 稍微調低一點，避免擋住內容 */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  z-index: 9999;
-}
-
-.social-btn {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: all 0.3s ease;
-  background: white;
-  border: none;
-  cursor: pointer;
-  padding: 12px; /* 增加內距，讓 icon 顯得精緻 */
-  text-decoration: none;
-  box-sizing: border-box;
-}
-
-.social-btn img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.social-btn:hover {
-  transform: translateY(-5px);
-  filter: brightness(0.9);
-}
-
-/* 側邊懸浮按鈕：回到頂部初始隱藏 */
-.social-btn.scroll-top { 
-  background-color: #333; 
-  color: white; 
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  /* 初始隱藏狀態 */
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s ease; /* 讓顯示/消失有淡入淡出的效果 */
-  transform: translateY(20px); /* 初始位置稍微往下移，增加彈出感 */
-}
-
-/* 當有 .show 這個類別時才顯示 */
-.social-btn.scroll-top.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-@media (max-width: 768px) {
-  .sticky-socials {
-    right: 15px;
-    bottom: 80px;
-  }
-  .social-btn {
-    width: 45px;
-    height: 45px;
-  }
-}
-    
     :root {
       --primary-color: #008080;
       --dark-color: #1a2b3c;
@@ -156,15 +46,30 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
-    .logo { display: flex; align-items: center; }
-    .logo img { height: 45px; width: auto; object-fit: contain; }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
 
-    .nav-right { display: flex; align-items: center; }
+    .logo img {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
+    }
 
-    .nav-links { display: flex; align-items: center; }
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
     .nav-links a {
       margin-left: 25px;
       text-decoration: none;
@@ -181,7 +86,7 @@
       margin-left: 25px;
     }
 
-    /* 漢堡選單圖示 */
+    /* 漢堡選單 */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -198,38 +103,37 @@
       border-radius: 2px;
     }
 
-    /* --- 選單遮罩層修正：靠右對齊 --- */
     .menu-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.4); /* 稍微調淡一點，更有質感 */
-      display: none; 
-      justify-content: flex-end; /* 關鍵：讓內容靠右 */
-      align-items: flex-start;  /* 從頂部開始 */
+      background: rgba(0, 0, 0, 0.4);
+      display: none;
+      justify-content: flex-end;
+      align-items: flex-start;
       z-index: 2000;
-      padding: 20px; /* 四週留白空間 */
+      padding: 20px;
       box-sizing: border-box;
     }
 
-    /* --- 選單內容修正：卡片式靠右 --- */
     .menu-content {
       background: white;
-      width: 80%; /* 手機版寬度 */
-      max-width: 320px; /* 限制最大寬度，避免在平板太寬 */
-      border-radius: 24px; /* 圓角更圓潤，仿截圖感 */
+      width: 80%;
+      max-width: 320px;
+      border-radius: 24px;
       padding: 25px;
       position: relative;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-      margin-top: 60px; /* 與頂部導航列保持一點距離 */
-      transform: translateX(20px); /* 初始動畫偏移 */
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      margin-top: 60px;
+      transform: translateX(20px);
       transition: 0.3s ease;
     }
 
-    /* 當選單開啟時的狀態（配合 JS） */
-    .menu-overlay.active { display: flex; }
+    .menu-overlay.active {
+      display: flex;
+    }
 
     .close-menu {
       position: absolute;
@@ -250,7 +154,10 @@
       margin-bottom: 10px;
     }
 
-    .menu-header img { height: 35px; border-radius: 50%; }
+    .menu-header img {
+      height: 35px;
+      border-radius: 50%;
+    }
 
     .menu-list {
       list-style: none;
@@ -272,44 +179,287 @@
       transition: 0.2s;
     }
 
-    .menu-list li a:active { color: var(--primary-color); }
+    /* 英雄區 */
+    .hero {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      padding: 0 10%;
+      background: #ffffff;
+      min-height: 500px;
+      overflow: hidden;
+    }
 
-    /* 英雄區樣式保持一致... */
-    .hero { display: flex; align-items: stretch; justify-content: space-between; padding: 0 10%; background: #ffffff; min-height: 500px; overflow: hidden; }
-    .hero-content { flex: 1.2; max-width: 650px; padding: 100px 0; display: flex; flex-direction: column; justify-content: center; }
-    .hero-content h1 { font-size: 52px; line-height: 1.2; margin-bottom: 24px; color: var(--dark-color); }
-    .hero-content p { font-size: 20px; color: #666; margin-bottom: 40px; }
-    .hero-btns { display: flex; gap: 15px; }
-    .btn-main { background: var(--primary-color); color: white; padding: 15px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; }
-    .btn-outline { border: 1px solid var(--dark-color); color: var(--dark-color); padding: 15px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; }
-    .hero-image { flex: 1; display: flex; justify-content: flex-end; align-items: flex-end; padding-top: 50px; box-sizing: border-box; }
-    .hero-image img { max-width: 90%; height: auto; display: block; object-fit: contain; }
+    .hero-content {
+      flex: 1.2;
+      max-width: 650px;
+      padding: 100px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-content h1 {
+      font-size: 52px;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--dark-color);
+    }
+
+    .hero-content p {
+      font-size: 20px;
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn-main {
+      background: var(--primary-color);
+      color: white;
+      padding: 15px 35px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--dark-color);
+      color: var(--dark-color);
+      padding: 15px 35px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding-top: 50px;
+      box-sizing: border-box;
+    }
+
+    .hero-image img {
+      max-width: 90%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
 
     /* 商品展示區 */
-    .content-section { background-color: var(--light-bg); padding: 80px 0; }
-    .section-title { text-align: center; margin-bottom: 40px; }
-    .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 10%; }
-    .product { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; padding-bottom: 25px; }
-    .product img { width: 100%; height: 220px; object-fit: contain; background-color: #fafafa; padding: 15px; box-sizing: border-box; }
-    .price { font-size: 20px; color: #ff0000; font-weight: bold; margin-bottom: 20px; }
-    .buy-btn { display: inline-block; background-color: #ff0000; color: white; padding: 10px 30px; text-decoration: none; border-radius: 50px; }
+    .content-section {
+      background-color: var(--light-bg);
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 0 10%;
+    }
+
+    .product {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      padding-bottom: 25px;
+    }
+
+    .product img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      background-color: #fafafa;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+
+    .price {
+      font-size: 20px;
+      color: #ff0000;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .buy-btn {
+      display: inline-block;
+      background-color: #ff0000;
+      color: white;
+      padding: 10px 30px;
+      text-decoration: none;
+      border-radius: 50px;
+    }
+
+    /* 頁尾樣式 */
+    .site-footer {
+      background-color: #fff;
+      padding: 30px 10%;
+      border-top: 1px solid #eee;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-bottom p {
+      margin: 0;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #666;
+      transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-color);
+    }
+
+    /* 側邊懸浮按鈕 */
+    .sticky-socials {
+      position: fixed;
+      right: 20px;
+      bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      z-index: 9999;
+    }
+
+    .social-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      background: white;
+      border: none;
+      cursor: pointer;
+      padding: 12px;
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+
+    .social-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-5px);
+      filter: brightness(0.9);
+    }
+
+    .social-btn.scroll-top {
+      background-color: #333;
+      color: white;
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+      transform: translateY(20px);
+    }
+
+    .social-btn.scroll-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
 
     /* 手機版適應 */
     @media (max-width: 768px) {
-      nav { padding: 10px 5%; }
-      .nav-links a:not(.nav-btn) { display: none; }
-      .nav-btn { margin-left: 0; font-size: 14px; padding: 6px 15px; }
-      .hamburger { display: flex; }
+      nav {
+        padding: 10px 5%;
+      }
 
-      .hero { flex-direction: column; text-align: center; padding: 40px 5% 0 5%; min-height: auto; }
-      .hero-content { padding: 40px 0; }
-      .hero-image { order: 1; justify-content: center; padding-top: 0; }
-      .hero-image img { max-width: 80%; }
-      .hero-content h1 { font-size: 32px; }
-      .hero-btns { justify-content: center; }
+      .nav-links a:not(.nav-btn) {
+        display: none;
+      }
+
+      .nav-btn {
+        margin-left: 0;
+        font-size: 14px;
+        padding: 6px 15px;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5% 0 5%;
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 40px 0;
+      }
+
+      .hero-image {
+        order: 1;
+        justify-content: center;
+        padding-top: 0;
+      }
+
+      .hero-image img {
+        max-width: 80%;
+      }
+
+      .hero-content h1 {
+        font-size: 32px;
+      }
+
+      .hero-btns {
+        justify-content: center;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .sticky-socials {
+        right: 15px;
+        bottom: 80px;
+      }
+
+      .social-btn {
+        width: 45px;
+        height: 45px;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <nav>
@@ -387,11 +537,34 @@
     </div>
   </div>
 
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>Copyright © 2026 TL 嚴選科技｜專業 3C 配件・快速出貨｜TL Developer 保留一切權利。</p>
+      <div class="footer-links">
+        <a href="#">隱私權政策</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sticky-socials">
+    <a href="https://line.me/your-id" class="social-btn line" title="LINE 客服">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE">
+    </a>
+    <a href="https://www.instagram.com/your-id" class="social-btn ig" title="Instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="IG">
+    </a>
+    <a href="tel:0900000000" class="social-btn phone" title="電話聯繫">
+      <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone">
+    </a>
+    <button class="social-btn scroll-top" onclick="scrollToTop()" title="回到頂部">
+      ▲
+    </button>
+  </div>
+
   <script>
+    // 選單切換
     function toggleMenu() {
       const overlay = document.getElementById('menuOverlay');
-      const content = document.getElementById('menuContent');
-      
       if (overlay.style.display === 'flex') {
         overlay.style.display = 'none';
         document.body.style.overflow = 'auto';
@@ -401,50 +574,25 @@
       }
     }
 
-    // 監聽視窗捲動事件
-window.addEventListener('scroll', function() {
-  const scrollTopBtn = document.querySelector('.scroll-top');
-  
-  // 當網頁往下捲動超過 300 像素時顯示按鈕
-  if (window.pageYOffset > 300) {
-    scrollTopBtn.classList.add('show');
-  } else {
-    scrollTopBtn.classList.remove('show');
-  }
-});
+    // 監聽視窗捲動
+    window.addEventListener('scroll', function () {
+      const scrollTopBtn = document.querySelector('.scroll-top');
+      if (window.pageYOffset > 300) {
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
+    });
 
-// 回到頂部的功能保持不變
-function scrollToTop() {
-  window.scrollTo({
-    top: 0, 
-    behavior: 'smooth'
-  });
-}
+    // 回到頂部
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   </script>
 
-  <footer class="site-footer">
-  <div class="footer-bottom">
-    <p>Copyright © 2026 TL 嚴選科技｜專業 3C 配件・快速出貨｜TL Developer 保留一切權利。</p>
-    <div class="footer-links">
-      <a href="#">隱私權政策</a>
-    </div>
-  </div>
-</footer>
-  
-<div class="sticky-socials">
-  <a href="https://line.me/your-id" class="social-btn line" title="LINE 客服">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE">
-  </a>
-  <a href="https://www.instagram.com/your-id" class="social-btn ig" title="Instagram">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="IG">
-  </a>
-  <a href="tel:0900000000" class="social-btn phone" title="電話聯繫">
-    <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone">
-  </a>
-  <button class="social-btn scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="回到頂部">
-    ▲
-  </button>
-</div>
-  
 </body>
+
 </html>
